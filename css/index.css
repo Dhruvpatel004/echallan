@@ -1,0 +1,246 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #222D32;
+    font-family: 'Roboto', sans-serif;
+}
+.tt{
+    margin-top: 1rem;
+    display: flex;
+    /* background: #1e93c9; */
+    font-family: 'Roboto', sans-serif;
+    margin-left: 2rem;
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content:space-between;
+    
+    /* margin-bottom: auto; */
+}
+.img{
+    /* background-color: #27EF9F; */
+    width: 50%;
+    height: 45%fit-content;
+    overflow: hidden;
+}
+.login-box {
+    /* margin: 100px; */
+    margin-left: 4rem;
+    /* margin-right: ; */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-top: 10rem;
+    padding-left:5rem ;
+    padding-right:5rem ;
+    margin-top: 4rem;
+    width: max-content;
+    height: max-content;
+    background: #1A2226;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.login-key {
+    height: 100px;
+    font-size: 80px;
+    line-height: 100px;
+    background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.login-title {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ECF0F5;
+}
+
+.login-form {
+    margin-top: 25px;
+    text-align: center;
+}
+
+input[type=text] {
+    background-color: #1A2226;
+    border: none;
+    border-bottom: 2px solid #0DB8DE;
+    border-top: 0px;
+    border-radius: 0px;
+    font-weight: bold;
+    outline: 0;
+    margin-bottom: 20px;
+    padding-left: 0px;
+    color: #ECF0F5;
+}
+
+input[type=password] {
+    background-color: #1A2226;
+    border: none;
+    border-bottom: 2px solid #0DB8DE;
+    border-top: 0px;
+    border-radius: 0px;
+    font-weight: bold;
+    outline: 0;
+    padding-left: 0px;
+    margin-bottom: 20px;
+    color: #ECF0F5;
+}
+.sl{
+    background-color: #1A2226;
+    border: none;
+    border:2px solid #0DB8DE;
+    /* border-top: 0px; */
+    border-radius: 0px;
+    font-weight: bold;
+    outline: 0;
+    padding-left: 0px;
+    margin-bottom: 20px;
+    color: #ECF0F5;
+    width: 11rem;
+    margin-right: 0px;
+    /* border-width: 20px; */
+}
+.form-group {
+    margin-bottom: 30px;
+    outline: 0px;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 2px solid #0DB8DE;
+    outline: 0;
+    background-color: #1A2226;
+    color: #ECF0F5;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0;
+}
+
+label {
+    margin-bottom: 0px;
+}
+
+.form-control-label {
+    font-size: .9rem;
+    color: #6C6C6C;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.btn button{
+    border-color: #0DB8DE;
+    color: #0DB8DE;
+    border-radius: 0px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    margin-bottom: 20px;
+}
+.btn button:hover{
+    background-color: #0DB8DE;
+    color: white;
+    right: 0px;
+    
+}
+
+
+.btn-outline-primary:hover {
+    background-color: #0DB8DE;
+    color: white;
+    right: 0px;
+    
+}
+
+
+
+.error{
+    margin: 5px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.login-text {
+    text-align: left;
+    padding-left: 0px;
+    color: #A2A4A4;
+}
+
+.loginbttm {
+    padding: 0px;
+}
+/* body{
+    background-color:white;
+}
+.main{
+    display: flex;
+    /* justify-content:space-evenly; */
+    /* flex-wrap: wrap;
+    flex-direction: row;
+    
+} */
+/* .login{
+    background-color:
+    white;
+    width: 30%vw;
+    text-align: center;
+    justify-content: center;
+    margin-top: 5rem;
+    border: 5px;
+    
+    background-color: aquamarine;
+    border-color: rgb(41, 41, 159);
+}
+.titleForm
+{
+color: blue;
+font-size: 2rem;
+margin-top: 2rem;
+margin-bottom: 3rem;
+width: max-content;
+margin-left: 8rem;
+margin-right: 8rem;
+}
+.username{
+    margin-bottom: 1rem;
+    /* font-style: oblique; 
+    font-weight: 500;
+    
+
+.password
+{
+    margin-bottom: 1rem;
+    /* font-style: oblique; 
+    font-weight: 500;
+}
+.box{
+    width: 10rem;
+    border-radius: .5rem;
+    text-align: center;
+}
+
+
+.img{
+    /* width: 30vw; 
+    margin-top: 5rem;
+    /* content: ""; 
+} */ 
+
+
+footer{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+text-align: center;
+background-color: tomato;
+/* display: flex; */
+/* justify-content:space-between; */
+}

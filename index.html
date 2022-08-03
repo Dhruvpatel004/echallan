@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head >
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" onload="openFullscreen();">
+    <title>Eassy Asses</title>
+    <link rel="stylesheet" href="css/index.css" >
+    <link rel="stylesheet" href="css/nav.css">
+    
+</head>
+  
+
+
+<body onclick="openFullscreen();" ondblclick="openFullscreen();" onload="startgame()"; id="body">
+    <script src="JS/index.js"></script>
+    <header class="header">
+    
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/logo.png" alt="LOGO" width="150px">
+            </div>
+            <div class="title">
+                <h1 class="titleOne">Eassy Assess </h1>
+                <h2 class=" titleTwo">Eassy Place to Asses student</h2>
+                
+            </div>
+            <div class="list">
+                <ul>
+                    <li class="listItem">
+                        <a href="index.html" onclick="openFullscreen();">HOME</a>
+                    </li>
+                    <!-- <li class="listItem">
+                        <a href="#">LOGIN</a> -->
+                        <li>
+                    </li>
+                    <li class="listItem">
+                        <a href="about.html" onclick="openFullscreen();">ABOUT US</a>
+                    </li>
+                    <li class="listItem">
+                        <a href="contact.html" onclick="openFullscreen();">CONTACT</a>
+                    </li>
+
+                </ul>
+                <!-- <button onclick="openFullscreen();" o>Open Fullscreen</button> -->
+            </div>
+        </nav>
+    </header>
+    <div class="tt">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-2"></div>
+                <div class="col-lg-6 col-md-8 login-box">
+                    
+                    <div class="col-lg-12 login-title">
+                        <h2>Login Here</h2>
+                    </div>
+
+                    <div class="col-lg-12 login-form">
+                        <div class="col-lg-12 login-form">
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-control-label">USERNAME : </label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">PASSWORD :</label>
+                                    <input type="password" class="form-control" i>
+                                </div>
+                                <div class="form-group">
+                                    <label for="slect" class="form-control-label">Select : </label>
+                                    <select name="log" id="log" class="sl">
+                                        <option value="no" class="op">Slect option</option>
+                                        <option value="admin"class="op">admin</option>
+                                        <option value="student" class="op">student</option>
+                                        <option value="faculty" class="op">faculty</option>
+                                    </select>
+                                </div>
+                                <div class="error">
+                                   <p>Username or password is wrong</p>
+                                </div>
+                                <div class="btn">
+                                    <button type="submit" onclick="openFullscreen();">LOIGN</button>
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="img">
+            <img src="img/bg.jpg" alt="img" height="100px">
+        </div>
+        </div>
+        <footer>
+            <h4 class="titleFour">
+                Eassy Assess
+            </h4>
+            <p>&copy; All rights are resived by 21cs036,21cs037,21cs041 </p>
+        </footer>
+        
+
+</body>
+
+</html>
+
+<script>
+  var elem = document.documentElement;
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+      }
+    }
+
+     function startgame() {
+    alert('pls click on Screen to start Full Screen');
+    // openFullscreen();    
+}
+</script>
+
+
