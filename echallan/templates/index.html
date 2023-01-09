@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>e-Challan</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png'%}" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"
+        type="text/css" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+</head>
+
+<body>
+    <!-- Navigation-->
+    <div class="nav" id="navp">
+        <input type="checkbox" id="nav-check">
+
+        <div class="nav-header">
+
+
+
+            <div class="nav-title">
+                <img src="{% static 'img/logo.png'%}" alt="" height="50px">
+                e-Challan System
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="https://echallanpayment.gujarat.gov.in/sasguj/static/UserManuals.pdf" target="_blank">Manual</a>
+            <a href="https://echallanpayment.gujarat.gov.in/sasguj/static/GeneralInstructions.pdf"
+                target="_blank">Guidelines</a>
+            <a href="#rules">Rules</a>
+
+            <a href="#contact">Contact</a>
+            <!-- <a href="https://codepen.io/jo_Geek/" target="_blank">Devlopers</a> -->
+            <!-- <a href="https://jsfiddle.net/user/jo_Geek/" target="_blank">JsFiddle</a> -->
+        </div>
+    </div>
+    <!-- Masthead-->
+    <header class="masthead image-head" id="home" style="background-image: url(/static/img/t5.webp);">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="text-center text-white">
+                        <!-- Page heading-->
+                        <h3 class="mb-5">e-Challan Online Payment </h3>
+                        <!-- Signup form-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <!-- <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN"> -->
+
+                        <form  action="user/" class="form-subscribe" id="contactForm" >
+                            <!-- Email address input-->
+                            <div class="row">
+                                <div class="col">
+                                    <!-- <label for="" class=" ">Enter Your Vehchal Number :</label> -->
+
+                                    <input class="form-control form-control-lg change1" id="num" type="text" name="vehicleNumber"
+                                        placeholder="Enter Vehicle Number eg:GJ00xx0000"
+                                         required oninput="this.value = this.value.toUpperCase()" autofocus>
+                                    <span id="message" class="text-white"></span>
+                                    <div class="invalid-feedback text-white" data-sb-feedback="num:required">
+                                        Vehicle Number is required.
+
+                                    </div>
+                                    <div class="invalid-feedback text-white" data-sb-feedback="num:text">No
+                                        Record Found.</div>
+                                </div>
+
+                                <div class="col-auto"><button class="btn btn-primary btn-lg " id="submitButton"
+                                        type="submit" onmouseover="check()">Go !</button></div>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <!-- <div class="d-none" id="submitSuccessMessage">
+                                    <div class="text-center mb-3">
+                                        <div class="fw-bolder">Form submission successful!</div>
+                                        <p>To activate this form, sign up at</p>
+                                        <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                    </div>
+                                </div> -->
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage">
+                                <div class="text-center text-danger mb-3">Error sending message!</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Icons Grid-->
+    <section class="features-icons bg-light text-center">
+        <h3>We are Committed to your Safety & Security.</h3>
+        <!-- <div class="container">
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><img src="https://cdn-icons-png.flaticon.com/128/1705/1705416.png" alt=""></div> -->
+        <!-- <h3>We are Committed to your Safety & Security.</h3> -->
+        <!-- <p class="lead mb-0">This theme will look great on any device, no matter the size!</p> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                            <h3>Bootstrap 5 Ready</h3>
+                            <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
+                        </div>
+                    </div> -->
+        <!-- <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+                            <h3>Easy to Use</h3>
+                            <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
+                        </div>
+                    </div> -->
+        <!-- </div> -->
+        </div>
+    </section>
+    <!-- Image Showcases -->
+    <section class="showcase" id="rules">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/static/img/ruleimg/r1.png');background-repeat: no-repeat;
+                    background-size:contain;background-position: center center;
+                   "></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Do Not Drink and Drive</h2>
+                    <p class="lead mb-0">A statistic reveals that around 19 Indians are killed daily due to
+                        drunk-driving road accidents (source)
+
+                        As per the current law, the blood alcohol limit permissible for driving is up to 0.03%, which is
+                        equivalent to 30 mg of alcohol per 100 ml of blood.
+
+                        If an individual fails to pass this BAC test, he/she can be fined between Rs.2000 and Rs.10000,
+                        based on the final blood alcohol limit.
+
+                        Moreover, such individuals may also be sentenced to a prison term ranging between 7 months and
+                        four years.</p>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-lg-6 text-white showcase-img" style="background-image: url('/static/img/ruleimg/r2.svg');background-repeat: no-repeat;
+                    background-size:contain;background-position: center center;"></div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2>Always Own Valid Car Insurance Policy</h2>
+                    <p class="lead mb-0"> According to the Motor Vehicles Act of 1988, all motor vehicles in India need
+                        to possess valid third-party insurance coverage at all times.
+
+                        If you are not careful and the insurance policy lapses, you could be penalised for driving a
+                        vehicle without such a protection plan.
+
+                        The traffic authorities charge a fine of Rs.2000 for a first-time offence of this nature.
+                        However, repeat offences can lead to penalties of up to Rs.4000.</p>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/static/img/ruleimg/r3.jpg');background-repeat: no-repeat;
+                    background-size:contain;background-position: center center;"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Wear your seatbelt while Driving a Car</h2>
+                    <p class="lead mb-0">If you are new to driving, get in the habit of securing the seat belt as the
+                        first thing you do upon entering your vehicle. Doing so will not only help you avoid traffic
+                        violations, but it will also save your life in case of mishaps.
+
+                        If you are caught driving without this seat belt around your waist and chest, traffic cops can
+                        fine you up to Rs.1000 for this violation on the spot.
+
+                        So, be a hero and wear your seat belt!</p>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-lg-6 text-white showcase-img" style="background-image: url('/static/img/ruleimg/r4.png');background-repeat: no-repeat;
+                    background-size:contain;background-position: center center;"></div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2> Riding a Two-Wheeler without a Helmet On</h2>
+                    <p class="lead mb-0">One must wear a helmet at all times while riding a two-wheeler. One distinction
+                        to notice here is that the law states that all individuals on a two-wheeler must put on helmets
+                        and not just the driver.
+
+                        Penalties for non-compliance with this rule come in the form of fines of up to Rs.1000.
+
+                        In serious cases, traffic authorities may decide to suspend your license for a period of up to 3
+                        months as well.</p>
+
+                </div>
+            </div>
+
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/static/img/ruleimg/r5.jpg');background-repeat: no-repeat;
+                    background-size:contain;background-position: center center;"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Using a Mobile Phone while Riding</h2>
+                    <p class="lead mb-0">As per the new Motor Vehicle rules in effect from Oct 1, 2020, drivers can only
+                        use their phones as a navigational tool while on the wheel.
+
+                        If you are caught using the phone in any other fashion while driving, get ready to pay a fine of
+                        up to Rs.5000. A one-year prison sentence also applies to such traffic violators.
+
+                        Get off your phone for a while and focus on the road!</p>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-lg-6 text-white showcase-img" style="background-image: url('/static/img/ruleimg/r6.jpg');background-repeat: no-repeat;
+                    background-size:contain;background-position: center center;"></div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2>Over Speeding</h2>
+                    <p class="lead mb-0">Drivers should never exceed the recommended speed guidelines on roads, as doing
+                        so will draw the ire of traffic cops.
+
+                        As per a report, 66% of accidents in 2018 were caused due to speeding on Indian roads. (source)
+
+                        The fine charged for speeding varies as per the size of your vehicle, typically ranging between
+                        Rs.1000 and Rs.2000.</p>
+                </div>
+            </div>
+
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/static/img/ruleimg/r7.png');background-repeat: no-repeat;
+                    background-size:contain;background-position: center center;"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Jumping the Red Light</h2>
+                    <p class="lead mb-0">If you do not intend to bear penalties of up to Rs.5000 and a one-year prison
+                        sentence, ensure you stick to the various traffic signals during a drive, even if you are in a
+                        hurry. Remember the old saying, ‘better late than never.’
+
+                        These are some of the most basic traffic laws for drivers. As a person behind the wheels, you
+                        need to follow several others as well.
+
+                        Drive safe and adhere to all laws!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials-->
+    <section class="testimonials text-center bg-light" id="contact">
+        <div class="container">
+            <h2 class="mb-5">Devlopers </h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="/static/img/21cs041.jpg" alt="..." />
+                        <h5>Dhruv Patel (21CS041) <a href="https://www.linkedin.com/in/pateldhruv004/"><i
+                            class="bi-linkedin fs-3"></i></a></h5>
+                        <!-- <p class="font-weight-light mb-0"></p> -->
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="/static/img/21cs036.jpg" alt="..." />
+                        <h5>Samarth Pandya (21CS036)<a href="https://www.linkedin.com/in/samarth-pandya-2b0b88258/"><i
+                            class="bi-linkedin fs-3"></i></a></h5>
+                        <!-- <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of -->
+                        <!-- super nice landing pages."</p> -->
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="/static/img/21cs037.jpg" alt="..." />
+                        <h5>Jinesh Parekh (21CS037) <a href="https://www.linkedin.com/in/jinesh-parekh-86551724b/"><i
+                            class="bi-linkedin fs-3"></i></a></h5>
+                        <!-- <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to -->
+                        <!-- us!"</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call to Action-->
+
+    <!-- Footer-->
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                    <ul class="list-inline mb-2">
+                        <!-- <li class="list-inline-item"><a href="#!">About</a></li> -->
+                        <!-- <li class="list-inline-item">⋅</li> -->
+                        <!-- <li class="list-inline-item"><a href="#!">Contact</a></li> -->
+                        <!-- <li class="list-inline-item">⋅</li> -->
+                        <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                        <li class="list-inline-item">⋅</li>
+                        <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2022. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item me-4">
+                            <a href="https://www.facebook.com/samarth.pandya.3150?mibextid=ZbWKwL"><i
+                                    class="bi-facebook fs-3"></i></a>
+                        </li>
+                        <li class="list-inline-item me-4">
+                            <a href="https://twitter.com/Patel__Dhruv_?t=kgMX2TQ0pBV3MwJ5aYt-Tw&s=09"><i
+                                    class="bi-twitter fs-3"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://instagram.com/jinesh__parekh?igshid=YmMyMTA2M2Y="><i
+                                    class="bi-instagram fs-3"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script>
+        var intervalId = window.setInterval(function () {
+            // call your function here
+            var mobile = document.getElementById('num');
+
+
+            var message = document.getElementById('message');
+
+            var goodColor = "#ffffff";
+            // var badColor = "#f00a0a ";
+
+            if (mobile.value.length >= 9) {
+
+                mobile.style.backgroundColor = goodColor;
+                message.style.color = goodColor;
+                message.innerHTML = ""
+                document.querySelector('#submitButton').disabled = false;
+
+                // message.innerHTML = "required 10 digits, match requested format!"
+            }
+            // else if (mobile.value.length == 0) {
+            //     mobile.style.backgroundColor = white;
+            //     message.innerHTML = ""
+            //     ocument.querySelector('#submitButton').disabled = true;
+            // }
+            else  {
+
+                // mobile.style.backgroundColor = badColor;
+                // message.style.color = badColor;
+                message.innerHTML = "Enter Valid Vehicle Number!"
+                document.querySelector('#submitButton').disabled = true;
+            }
+
+            if(mobile.value.length == 0)
+            {
+                message.innerHTML = ""
+            }
+        }, 500);
+        // function check() {
+
+        //     var mobile = document.getElementById('num');
+
+
+        //     var message = document.getElementById('message');
+
+        //     var goodColor = "#03b800";
+        //     var badColor = "#f00a0a ";
+
+        //     if (mobile.value.length > 9) {
+
+        //         mobile.style.backgroundColor = goodColor;
+        //         message.style.color = goodColor;
+        //         document.querySelector('#submitButton').disabled = false;
+
+        //         // message.innerHTML = "required 10 digits, match requested format!"
+        //     }
+        //     else if (mobile.value.length < 9) {
+
+        //         mobile.style.backgroundColor = badColor;
+        //         message.style.color = badColor;
+        //         message.innerHTML = "Enter Valid Vehicle Number!"
+        //         document.querySelector('#submitButton').disabled = true;
+        //         // getElementById('submitButton').dis
+        //     }
+        // }
+        // // if (document.Entry.Number.length!== 7) {
+        // //     msg+="Your Number should be 7 digits. Please check this. \n";
+        // //     document.Entry.Number.focus();
+        // //     document.getElementById('Number').style.color="red";
+        // //     result = false;
+        // // }
+        // var len = document.getElementById('num').length;
+        // var intervalId = window.setInterval(function () {
+        //     // call your function here
+        //     len = document.getElementById('num').length;
+        //     if (len >= 9) {
+
+        //         document.getElementById("submitButton").disabled = false;
+        //         document.getElementById("")
+        //     }
+        //     else {
+        //         document.getElementById("submitButton").disabled = true;
+
+
+        //     }
+        // }, 100000);
+
+    </script>
+    <!-- <script type='text/javascript'>
+        var imageID = 0;
+        function changeimage(every_seconds) {
+            //change the image
+            if (!imageID) {
+                document.getElementById("image-head").src = "http://www.all-freeware.com/images/full/38943-nice_feathers_free_screensaver_desktop_screen_savers__nature.jpeg";
+                imageID++;
+            }
+            else {
+                if (imageID == 1) {
+                    document.getElementById("image-head").src = "http://www.hickerphoto.com/data/media/186/flower-bouquet-nice_12128.jpg";
+                    imageID++;
+                } else {
+                    if (imageID == 2) {
+                        document.getElementById("image-head").src = "http://www.photos.a-vsp.com/fotodb/14_green_cones.jpg";
+                        imageID = 0;
+                    }
+                }
+            }
+            //call same function again for x of seconds
+            setTimeout("changeimage(" + every_seconds + ")", ((every_seconds) * 1000));
+        }
+    </script> -->
+    <!-- <script>
+        var images = [
+  "assets/img/t1.jpj","assets/img/t2.jpj","assets/img/t3.jpj","assets/img/t4.jpj"
+  
+]
+
+var imageHead = document.getElementById("image-head");
+var i = 0;
+
+setInterval(function() {
+      imageHead.style.backgroundImage = "url( "+ images[i]+"  )";
+      i = i + 1;
+      if (i == images.length) {
+      	i =  0;
+      }
+}, 1000);
+    </script> -->
+
+</body>
+
+</html>
