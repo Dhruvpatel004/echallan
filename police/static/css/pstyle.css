@@ -1,0 +1,124 @@
+.container-fluid{
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+.infinity-form-container{
+    background: #d0cbbb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.infinity-image-container{
+    background: url('/static/img/bg.jpg') center no-repeat;
+    background-size: cover;
+    opacity: 1;
+    height: 100vh;
+}
+
+.infinity-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.infinity-form h4 {
+    font-weight: bold;
+    color: white;
+}
+
+.infinity-form .form-input {
+    position: relative;
+}
+
+.infinity-form .form-input input {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: white;
+    padding-left: 45px;
+}
+
+.infinity-form .form-input span {
+    position: absolute;
+    top: 8px;
+    padding-left: 20px;
+    color: #777;
+}
+
+.infinity-form .form-input input:focus,
+.infinity-form .form-input input:valid {
+    border: 2px solid #A6976A;   
+}
+
+.infinity-form input[type="checkbox"]:not(:checked) + label:before{
+    background: transparent;
+    border:2px solid white;
+    width: 15px;
+    height: 15px;
+}
+
+.infinity-form .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #A6976A !important;
+  border:0px;
+}
+
+.infinity-form button[type="submit"] {
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background: #898161;   /*Button Color*/
+    color: #fff;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.infinity-form button[type="submit"]:hover {
+    background: #6a5c14;   /*Button color when hover*/
+}
+
+.forget-link , .login-link , .register-link {
+    color: #fff;
+    font-weight: bold;
+}
+
+.forget-link:hover , .login-link:hover , .register-link:hover {
+    color: #6a5c14;
+    text-decoration: none;
+}
+
+.infinity-form .btn-social {
+    color: white;
+    border: 0;
+    display: inline-block;
+    margin: 0px;
+    margin-right: 10px;
+    font-weight: bold;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+.infinity-form .btn-social:hover {
+    text-decoration: underline;
+}
+
+.infinity-form .btn-facebook:hover {
+    color: hsla(221, 40%, 40%, 1);
+}
+
+.infinity-form .btn-google:hover {
+    color: hsla(4, 59%, 47%, 1);
+}
+
+.infinity-form .btn-twitter:hover {
+    color: hsla(195, 78%, 54%, 1);
+}
+
