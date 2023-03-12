@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}eChallan | Police Details{% endblock title %}
+{% block title %}eCHALLAN | RTO{% endblock title %}
 {% block body1 %}
 
 <main id="main" class="main">
+  {% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <i class="bi bi-exclamation-triangle me-1"></i>
+  {{ message }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+ {% endfor %}
+{% endif %}
 
   <div class="pagetitle">
     <h1>List of Police Account</h1>
@@ -49,7 +58,7 @@
                     </tr> -->
                 {% for i in p %}
                 <tr>
-                  <th scope="row"><a href="#">{{i.police_username}}</a></th>
+                  <th scope="row"><a href="show_pid/{{ i.police_id}}">{{i.police_username}}</a></th>
                   <!-- <td>{{i.police_username}}</td> -->
                   <!-- <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td> -->
                   <td>{{i.police_firstname}} {{i.police_lastname}}</td>

@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block title %}eCHALLAN | RTO{% endblock title %}
+{% block body1 %}
+
+<main id="main" class="main">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <i class="bi bi-exclamation-triangle me-1"></i>
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+     {% endfor %}
+    {% endif %}
+    <div class="pagetitle">
+      <h1>Add New Vehical Details</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../">Home</a></li>
+          <li class="breadcrumb-item">New Vehical No</li>
+          <li class="breadcrumb-item active">Add Vehica Details</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+
+              <!-- General Form Elements -->
+              <form method="post" action="addv/">
+                {% csrf_token %}
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-4 col-form-label">* Vehicle no:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_no" id="v_no" required autofocus oninput="this.value = this.value.toUpperCase()" autocomplete="off">
+                    <span id="v_no_check"></span>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-8 col-form-label">* Vehicle Owner name:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_own_name" required autofocus>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-8 col-form-label">* Vehicle Owner Contact No:</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" name="v_own_conno" required autofocus>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-8 col-form-label">* Vehicle Owner Address:</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" style="height: 100px" name="v_own_address" id="v_own_address"required autofocus></textarea>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-8 col-form-label">* Vehicle Owner email:</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" name="v_own_email" required autofocus>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-8 col-form-label">* Vehicle Company name:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_com_name" required autofocus>
+                  </div>
+                </div>
+                {% comment %} <div class="row mb-3">
+                  <label for="inputText" class="col-sm-8 col-form-label">* Vehicle Class:</label>
+                  <div class="col-sm-10">
+                     <select name="V_class" id="Vehicle">
+                      <option value="Motorcycle" >Motorcycle</option>
+                      <option value="Passenger car" >Passenger car</option>
+                      <option value="Four tire" >Four tire</option>
+                      <option value="Buses" >Buses</option>
+                      <option value="Two axle" >Two axle</option>
+                      <option value="Three axle" >Three axle</option>
+                      <option value="Four axle" >Four axle</option>
+                      <option value="Five axle" >Five axle</option>
+                    </select> 
+                    <input type="text" class="form-control" name="V_class">
+                  </div>
+                </div> {% endcomment %}
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-8 col-form-label">* Date Of Registration:</label>
+                  <div class="col-sm-10">
+                    <input type="date" class="form-control" name="v_date_reg" required autofocus>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">* Chassics No:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_chass_no" id="v_chass_no" required autofocus oninput="this.value = this.value. toLowerCase()" autocomplete="off">
+                    <span id="v_chass_no_check"></span>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">* Engine No:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_eng_no" id="v_eng_no" required autofocus oninput="this.value = this.value. toLowerCase()" autocomplete="off">
+                    <span id="v_eng_no_check"></span>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">* Owner Sr. No :</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" name="v_own_srno" required autofocus>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">* Fuel Used:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_fuel" required autofocus>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">* Seating Capacity:</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" name="v_seat" required autofocus>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">* Model Name:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_model_name" required autofocus>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit </button>
+                    <button type="reset" class="btn btn-primary col-sm-3">Clear </button>
+                  </div>
+                </div>
+                <hr/>
+                {% if messages%}
+                {% for rusult in messages %}
+                <b>{{ result }}</b>
+                {% endfor %}
+                {% endif %}
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    {% load static %}
+    <script src="{% static 'js/add_veh.js' %}"></script>
+  </main><!-- End #main -->
+
+{% endblock body1 %}

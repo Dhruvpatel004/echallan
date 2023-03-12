@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}eCHALLAN | RTO{% endblock title %}
+{% block body1 %}
+
+<main id="main" class="main">
+  {% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <i class="bi bi-exclamation-triangle me-1"></i>
+  {{ message }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+ {% endfor %}
+{% endif %}
+
+  <div class="pagetitle">
+    <h1>List of Registred Vehicals</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../">Home</a></li>
+        <!-- <li class="breadcrumb-item">RTO Dashboard</li> -->
+        <li class="breadcrumb-item active">Vehical List</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="col-12">
+          <div class="card  overflow-auto">
+        <!-- <div class="card">
+          <div class="card-body "> -->
+
+            <table class="table table-border datatable">
+              <thead>
+                <tr>
+                  <!-- <th scope="col">POLICE ID</th> -->
+                  <th scope="col">VEHICAL NO </th>
+                  <th scope="col">CHASSICS NO</th>
+                  <th scope="col">ENGIEEN NO </th>
+                  <th scope="col">FUEL TYPE </th>
+                  <th scope="col">SEATING CAPACITY</th>
+                  <th scope="col">DATE OF REGISTRATION</th>
+                  <th scope="col">UPDATE </th>
+                  <th scope="col">DELETE </th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- <tr>
+                      <th scope="row"><a href="#">GJ01AB2341</a></th>
+                      <td>Brandon Jacob</td>
+                      <td><a href="#" class="text-primary">At praesentium</a></td>
+                      <td>$64</td>
+                      <td><span class="badge bg-success">Paid</span></td>
+                    </tr> -->
+                {% for i in p %}
+                <tr>
+                  <th scope="row"><a href="show_vid/{{ i.vehicle_id}}">{{i.vehicle_no}}</a></th>
+                  <!-- <td>{{i.police_username}}</td> -->
+                  <!-- <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td> -->
+                  <td>{{i.vehicle_chassics_no}}</td>
+                  <td>{{i.vehicle_eng_no}}</td>
+                  <td>{{i.vehicle_fuel_use}}</td>
+                  <td>{{i.vehicle_Seat_cap}}</td>
+                  <td>{{i.vehicle_created_date}}</td>
+                  <td><a href="update_vid/{{ i.vehicle_id}}" class="btn btn-info"><i class="bi bi-pen"></i></a></td>
+                  <td><a href="delete_vid/{{ i.vehicle_id}}" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+            
+                  <!-- <td><span class="badge bg-warning">Review Request</span></td> -->
+                </tr>
+                {% endfor %}
+            
+            
+              </tbody>
+            </table>
+
+
+
+
+          </div>
+        </div>
+
+      <!-- </div>
+    </div> -->
+    </div>
+    </div>
+  </section>
+
+</main><!-- End #main -->
+
+{% endblock body1 %}
+
+
+
+<!-- End Table with hoverable rows -->
+
+
+

@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}eCHALLAN | RTO{% endblock title %}
+{% block body1 %}
+
+<main id="main" class="main">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <i class="bi bi-exclamation-triangle me-1"></i>
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+     {% endfor %}
+    {% endif %}
+    <div class="pagetitle">
+      <h1>Create New Rule</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/rto-administrator/rtodashboard/">Home</a></li>
+          <!-- <li class="breadcrumb-item">RTO Dashboard</li> -->
+          <li class="breadcrumb-item active"><a href="/rto-administrator/rtodashboard/rto_add_rule/">Create New Rule</a></li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-7">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Enter New Rule</h5>
+
+              <!-- General Form Elements -->
+              <form method="post" action="addrl/">
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label" >Rule Code :</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="rule_code" required autofocus id="rcode" oninput="this.value = this.value.toUpperCase()" autocomplete="off">
+                      <span id="rcode_check"></span>
+                    </div>
+                  </div>
+                <div class="row mb-3">
+                  <label for="dec_off" class="col-sm-8 col-form-label">Description of offence :</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" style="height: 100px" name="dec_off" id="dec_off" required autofocus></textarea>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-4 col-form-label">Section Type :</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="Sect" required autofocus>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-4 col-form-label">Penalty :</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="penalty">
+                  </div>
+                </div>
+                {% comment %} <div class="row mb-3">
+                    <label for="inputDate" class="col-sm-4 col-form-label">Date Of Publish :</label>
+                    <div class="col-sm-10">
+                      <input type="date" class="form-control" name="date_of_join" required autofocus>
+                    </div>
+                </div> {% endcomment %}
+
+                <div class="row mb-3">
+                  <!-- <label class="col-sm-2 col-form-label">Submit Button</label> -->
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary col-sm-3" id="submitBtn">Submit </button>
+                    <button type="reset" class="btn btn-primary col-sm-3">Clear </button>
+
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    {% load static %}
+    <script src="{% static 'js/add_rule.js' %}"></script>
+  </main><!-- End #main -->
+
+  
+
+{% endblock body1 %}

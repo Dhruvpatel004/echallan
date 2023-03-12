@@ -176,16 +176,16 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Vehical Details</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-car-front"></i><span>Vehical Details</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
          <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="/rto-administrator/rtodashboard/rto_add_vehicle/">
               <i class="bi bi-circle"></i><span>Add Vehical Details</span>
             </a>
           </li>
           <li>
-            <a href="components-alerts.html">
+            <a href="/rto-administrator/rtodashboard/view_vehicle_list/">
               <i class="bi bi-circle"></i><span>Update Vehical Details</span>
             </a>
           </li>
@@ -194,7 +194,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Pollice Details</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-person"></i><span>Pollice Details</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -212,12 +212,31 @@
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#rule-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Rule BooK</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="rule-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/rto-administrator/rtodashboard/rto_add_rule/">
+              <i class="bi bi-circle"></i><span>Add New Rule</span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="/rto-administrator/rtodashboard/view_rule_list/">
+              <i class="bi bi-circle"></i><span>View Rulebook</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>License Details</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
+            <a href="/rto-administrator/rtodashboard/upcomig/">
               <i class="bi bi-circle"></i><span>Add New License</span>
             </a>
           </li>
@@ -227,21 +246,21 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>View History</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-clock-history"></i><span>View History</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
+            <a href="/rto-administrator/rtodashboard/upcomig/">
               <i class="bi bi-circle"></i><span>Vehical History</span>
             </a>
           </li>
           <li>
-            <a href="charts-apexcharts.html">
+            <a href="/rto-administrator/rtodashboard/upcomig/">
               <i class="bi bi-circle"></i><span>Vehical Challan History</span>
             </a>
           </li>
           <li>
-            <a href="charts-apexcharts.html">
+            <a href="/rto-administrator/rtodashboard/upcomig/">
               <i class="bi bi-circle"></i><span>Police  History</span>
             </a>
           </li>
@@ -253,7 +272,7 @@
       <li class="nav-heading">USER</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="/rto-administrator/rtodashboard/profile/">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
@@ -264,7 +283,9 @@
   
 
   <div class="new1">
-  {% block body1 %}{% endblock body1 %} 
+    
+  {% block body1 %}
+  {% endblock body1 %} 
 
   </div>
 
