@@ -43,3 +43,22 @@ class Rules(models.Model):
     # rule_date=models.DateField(default=None)
     def __str__(self):  
         return self.rule_code
+    
+class Challan(models.Model): 
+    challan_no=models.AutoField(primary_key = True)
+    cpolice=models.CharField(max_length=50,default=None)
+    suspect_name=models.CharField(max_length=50,default=None)
+    owner_name=models.CharField(max_length=50,default=None)
+    offence_date=models.DateField(default=None)
+    offence_time=models.TimeField(default=None)
+    # license_no=models.CharField(max_length=50,default=None,blank=True)
+    vehicle_no=models.CharField(max_length=50,default=None)
+    offender_mobile_no=models.IntegerField(default=None,null=True)
+    offender_email_id=models.CharField(max_length=50,default=None,null=True)
+    fine=models.IntegerField(default=None)
+    rule_code=models.CharField(max_length=50,default=None)
+    evidence=models.ImageField( height_field=None, width_field=None,max_length=100, blank=True)
+    status=models.CharField(max_length=15,default='Pending')
+
+    def __str__(self):  
+        return self.challan_no

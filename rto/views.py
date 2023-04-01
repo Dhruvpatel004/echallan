@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.shortcuts import redirect
 from django.contrib import messages
-from .models import RTOadmin ,  Vehicle , Rules
+from .models import Challan, RTOadmin ,  Vehicle , Rules
 from datetime import *
 from police.models import Police
 import json
@@ -41,26 +41,112 @@ def rtodashboard(request):
 
         username = request.POST.get('rtoemail', 'default')
         password = request.POST.get('rtopassword', 'default')
-        # RTOadmin.admin_created_date=datetime.date
-        # RTOadmin.admin_username='OK'
-        # RTOadmin.admin_password='OK'
-        # RTOadmin.add_to_class['admin_username':123]
-        # RTOadmin.save()
-    # username=request.POST.post('rtoemail')
-    # password=request.POST.post('rtopassword')
 
-        cusername = RTOadmin.objects.filter(
-            admin_username=username, admin_password=password).count()
+        cusername = RTOadmin.objects.filter(admin_username=username, admin_password=password).count()
         request.session['loginid'] = username
-        print(cusername)
+        extra=datetime.now().date()
+        if extra.month-1 == 2 and extra.day>28:
+            monthbefore=date(extra.year,(extra.month-1),28)
+        elif extra.day == 31 :
+            monthbefore=date(extra.year,(extra.month-1),30)
+        else:
+            monthbefore=date(extra.year,(extra.month-1),extra.day)
 
+        if extra.month-2 == 2 and extra.day>28:
+            monthbeforebefore=date(extra.year,(extra.month-2),28) 
+        elif extra.day == 31 :
+            monthbeforebefore=date(extra.year,(extra.month-2),30)
+        else:
+            monthbeforebefore=date(extra.year,(extra.month-2),extra.day)
+        yesterday=datetime.now().date()-timedelta(1)
+        # monthbefore=monthbefore.month-1
+        tallchs = list(Challan.objects.filter(offence_date=datetime.now().date()).values())
+        yallchs = list(Challan.objects.filter(offence_date=yesterday).values())
+
+        sumallchs = list(Challan.objects.filter(offence_date=datetime.now().date()))
+        yesterdaysumallchs = list(Challan.objects.filter(offence_date=yesterday))
+
+        nowtotalchs = list(Challan.objects.filter(offence_date__gte=monthbefore,offence_date__lte=datetime.now().date()))
+        lasttotalchs = list(Challan.objects.filter(offence_date__gte=monthbeforebefore,offence_date__lte=monthbefore))
+
+        paidtotalchs = list(Challan.objects.filter(offence_date__gte=monthbefore,offence_date__lte=datetime.now().date()).filter(status="Paid"))
+        pendingtotalchs = list(Challan.objects.filter(offence_date__gte=monthbefore,offence_date__lte=datetime.now().date()).filter(status="Pending"))
+
+        
+        total_sum_today = 0
+        for item in sumallchs:
+            total_sum_today += item.fine
+
+        total_sum_yesterday = 0
+        for item in yesterdaysumallchs:
+            total_sum_yesterday += item.fine
+
+        if total_sum_today + total_sum_yesterday==0:
+            challan_difference_today=0
+            challan_difference_yesterday=0
+        else:
+            challan_difference_today= ((total_sum_today*100)/(total_sum_today + total_sum_yesterday))
+            challan_difference_yesterday=(total_sum_yesterday*100)/(total_sum_today+total_sum_yesterday)
+        # challan_difference_day=
+
+        total_sum_month = 0
+        for item in nowtotalchs:
+            total_sum_month += item.fine
+
+        last_total_sum_month = 0
+        for item in lasttotalchs:
+            last_total_sum_month += item.fine
+
+        if total_sum_month + last_total_sum_month==0:
+            challan_difference_lmonth=0
+            challan_difference_tmonth=0
+        else:
+            challan_difference_tmonth= ((total_sum_month*100)/(total_sum_month + last_total_sum_month))
+            challan_difference_lmonth=(last_total_sum_month*100)/(total_sum_month+last_total_sum_month)
+
+        paid_total_sum_month = 0
+        for item in paidtotalchs:
+            paid_total_sum_month += item.fine
+
+        pending_total_sum_month = 0
+        for item in pendingtotalchs:
+            pending_total_sum_month += item.fine
+
+        c = request.session.get('username')
+        v = request.session.get('username')
         if cusername:
             request.session['login'] = True
             request.session['username'] = username
 
             context = {
                 'user': user(request),
-            }
+                'c': tallchs ,
+                'cl': len(tallchs),
+                'ycl': len(yallchs),
+                'cgtyc': round(len(tallchs)-len(yallchs)),
+                'ycgtc': round(len(yallchs)-len(tallchs)), 
+                'sumt' : total_sum_today,
+                'summ' : total_sum_month,
+                'paidsumm' : paid_total_sum_month,
+                'pendingsumm' : pending_total_sum_month,
+                'challandifftoday' : challan_difference_today,
+                'challandiffyesterday': challan_difference_yesterday,
+                'tgtchallandiffday' : round(challan_difference_today-challan_difference_yesterday),
+                'ygtchallandiffday' : round(challan_difference_yesterday-challan_difference_today),
+                'challandiffthismonth' : challan_difference_tmonth,
+                'challandifflastmonth': challan_difference_lmonth,
+                'ngtchallandiffmonth' : round(challan_difference_tmonth-challan_difference_lmonth),
+                'lgtchallandiffmonth' : round(challan_difference_lmonth-challan_difference_tmonth)
+                          }
+
+
+
+        # allchs = list(Vehicle.objects.all().values())
+        # print(allpoli
+
+
+
+
             return render(request, 'rtodashboard.html', context)
 
         else:
@@ -73,11 +159,104 @@ def rtodashboard(request):
             return redirect('/rto-administrator/')
 
         else:
+            username = request.POST.get('rtoemail', 'default')
+            password = request.POST.get('rtopassword', 'default')
+            extra=datetime.now().date()
+            if extra.month-1 == 2 and extra.day>28:
+                monthbefore=date(extra.year,(extra.month-1),28)
+            elif extra.day == 31 :
+                monthbefore=date(extra.year,(extra.month-1),30)
+            else:
+                monthbefore=date(extra.year,(extra.month-1),extra.day)
+
+            if extra.month-2 == 2 and extra.day>28:
+                monthbeforebefore=date(extra.year,(extra.month-2),28) 
+            elif extra.day == 31 :
+                monthbeforebefore=date(extra.year,(extra.month-2),30)
+            else:
+                monthbeforebefore=date(extra.year,(extra.month-2),extra.day)
+            yesterday=datetime.now().date()-timedelta(1)
+        # monthbefore=monthbefore.month-1
+            tallchs = list(Challan.objects.filter(offence_date=datetime.now().date()).values())
+            yallchs = list(Challan.objects.filter(offence_date=yesterday).values())
+
+            sumallchs = list(Challan.objects.filter(offence_date=datetime.now().date()))
+            yesterdaysumallchs = list(Challan.objects.filter(offence_date=yesterday))
+
+            nowtotalchs = list(Challan.objects.filter(offence_date__gte=monthbefore,offence_date__lte=datetime.now().date()))
+            lasttotalchs = list(Challan.objects.filter(offence_date__gte=monthbeforebefore,offence_date__lte=monthbefore))
+
+            paidtotalchs = list(Challan.objects.filter(offence_date__gte=monthbefore,offence_date__lte=datetime.now().date()).filter(status="Paid"))
+            pendingtotalchs = list(Challan.objects.filter(offence_date__gte=monthbefore,offence_date__lte=datetime.now().date()).filter(status="Pending"))
+
+        
+            total_sum_today = 0
+            for item in sumallchs:
+                total_sum_today += item.fine
+
+            total_sum_yesterday = 0
+            for item in yesterdaysumallchs:
+                total_sum_yesterday += item.fine
+
+            if total_sum_today + total_sum_yesterday==0:
+                challan_difference_today=0
+                challan_difference_yesterday=0
+            else:
+                challan_difference_today= ((total_sum_today*100)/(total_sum_today + total_sum_yesterday))
+                challan_difference_yesterday=(total_sum_yesterday*100)/(total_sum_today+total_sum_yesterday)
+        # challan_difference_day=
+
+            total_sum_month = 0
+            for item in nowtotalchs:
+                total_sum_month += item.fine
+
+            last_total_sum_month = 0
+            for item in lasttotalchs:
+                last_total_sum_month += item.fine
+
+            if total_sum_month + last_total_sum_month==0:
+                challan_difference_lmonth=0
+                challan_difference_tmonth=0
+            else:
+                challan_difference_tmonth= ((total_sum_month*100)/(total_sum_month + last_total_sum_month))
+                challan_difference_lmonth=(last_total_sum_month*100)/(total_sum_month+last_total_sum_month)
+
+            paid_total_sum_month = 0
+            for item in paidtotalchs:
+                paid_total_sum_month += item.fine
+
+            pending_total_sum_month = 0
+            for item in pendingtotalchs:
+                pending_total_sum_month += item.fine
+
+            c = request.session.get('username')
+            v = request.session.get('username')
+            # if cusername:
+            # request.session['login'] = True
+            # request.session['username'] = username
+
             context = {
                 'user': user(request),
-            }
+                'c': tallchs ,
+                'cl': len(tallchs),
+                'ycl': len(yallchs),
+                'cgtyc': round(len(tallchs)-len(yallchs)),
+                'ycgtc': round(len(yallchs)-len(tallchs)), 
+                'sumt' : total_sum_today,
+                'summ' : total_sum_month,
+                'paidsumm' : paid_total_sum_month,
+                'pendingsumm' : pending_total_sum_month,
+                'challandifftoday' : challan_difference_today,
+                'challandiffyesterday': challan_difference_yesterday,
+                'tgtchallandiffday' : round(challan_difference_today-challan_difference_yesterday),
+                'ygtchallandiffday' : round(challan_difference_yesterday-challan_difference_today),
+                'challandiffthismonth' : challan_difference_tmonth,
+                'challandifflastmonth': challan_difference_lmonth,
+                'ngtchallandiffmonth' : round(challan_difference_tmonth-challan_difference_lmonth),
+                'lgtchallandiffmonth' : round(challan_difference_lmonth-challan_difference_tmonth)
+                          }
+            
             return render(request, 'rtodashboard.html', context)
-
 
 def addp(request):
     if authcheck(request):
@@ -558,6 +737,8 @@ def changepassword(request):
         return log_rto()
 
 
+
+
 #                           #
 #server Api Start From here`#
 #                           #
@@ -606,3 +787,39 @@ def validate_rule_code_api(request):
     if rcode_taken:
         return JsonResponse({'rule_code_error': 'rule code already used.'})
     return JsonResponse({'rule_code': True})
+
+def allcrto(request):
+    if authcheck(request):
+        allchs = list(Challan.objects.all().values().reverse())
+        # allchs = list(Vehicle.objects.all().values())
+        # print(allpoli)
+        allchs=allchs[::-1]
+        c = request.session.get('username')
+        v = request.session.get('username')
+ 
+        context1 = {
+            'user': user(request),
+            'c': allchs                    
+            }
+        return render(request, 'challan_history.html',context1)
+
+    else:
+        return log_rto(request)
+    
+
+def rchallan(request,cno):
+    if authcheck(request):
+        c=Challan.objects.get(challan_no=cno)
+        r_code=c.rule_code
+        r=Rules.objects.get(rule_code=r_code)
+        v_no=c.vehicle_no
+        v=Vehicle.objects.get(vehicle_no=v_no)
+        context = {
+            'user': user(request),
+            'c':c,
+            'r':r,
+            'v':v
+        }
+        return render(request, 'rchallan.html', context)
+    else:
+        return log_rto()

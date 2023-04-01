@@ -1,0 +1,112 @@
+{% extends 'base1.html' %}
+
+{% block title %}Add Challan Details{% endblock title %}
+{% block body1 %}
+
+<main id="main" class="main">
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <i class="bi bi-exclamation-triangle me-1"></i>
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+     {% endfor %}
+    {% endif %}
+
+    <div class="pagetitle">
+      <h1>Generate Challan</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../">Home</a></li>
+          <li class="breadcrumb-item">Generate Challan</li>
+          <li class="breadcrumb-item active">Challan</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+
+              <!-- General Form Elements -->
+              <form method="post" action="addc/">
+                {% csrf_token %}
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-4 col-form-label">* Supect Name:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="sus_name" required autofocus  autocomplete="off">
+                  </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">* Vehicle No:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="v_no" id="v_no" required autofocus oninput="this.value = this.value.toUpperCase()" autocomplete="off">
+                      <span id="v_no_check"></span>
+
+                      <a href="#" id="view_v" style="display: none;">View Details Vehicle</a>
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                 
+                  <label for="inputText" class="col-sm-4 col-form-label">* Section:</label>
+                  <div class="col-sm-10">
+                    <select name="section" id="section" class="form-control"  required autofocus>
+                     <option value="" required>--Select Section--</option>
+
+                     {% for i in r %}
+                     <option value="{{ i.rule_code }}">{{ i.rule_sect }}   {{ i.rule_desc }}</option>
+                     {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                
+              
+
+                <div class="row mb-3">
+                    <label for="inputImage" class="col-sm-4 col-form-label">  Evidence:</label>
+                    <div class="col-sm-10">
+                      <input type="file" class="form-control" name="evid">
+                    </div>
+                </div>
+
+
+
+                  <div class="col-sm-10 " id="b">
+
+                    <button type="submit" class="btn btn-primary" id="submitBtn" onclick="myFunction()" disabled>Submit 
+                    
+                    </button>
+                    <button type="reset" class="btn btn-primary col-sm-3">Clear </button>
+                  </div>
+                  <div class="row mb-3" id="s" style="display: none;"> 
+                    <br>
+                    <label for="inputImage" class="col-sm-4 col-form-label"></label>
+                    <div class="spinner-border text-primary box" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                  
+                <hr/>
+               
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    {% load static %}
+    <script src="{% static 'js/challan.js' %}"></script>
+
+  </main><!-- End #main -->
+
+{% endblock body1 %}

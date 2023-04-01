@@ -1,0 +1,127 @@
+{% extends 'base1.html' %}
+
+{% block title %}eCHALLAN | RTO{% endblock title %}
+{% block body1 %}
+
+<main id="main" class="main">
+
+    <!-- End Page Title -->
+
+    
+    <div class="pagetitle">
+      <h1>Vehical Details - {{member.vehicle_no}}</h1>
+      <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../">Home</a></li>
+            <li class="breadcrumb-item">Vehical</li>
+            <li class="breadcrumb-item active">Vehicals Details</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+              <!-- General Form Elements -->
+              <form method="" action="#">
+                {% csrf_token %}
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-4 col-form-label">* Vehicle no:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_no" value={{member.vehicle_no}} {% if access == False %}disabled{% endif %} required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-4 col-form-label">* Vehicle Owner name:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_own_name" value={{member.vehicle_own_name}} {% if access == False %}disabled{% endif %} required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-4 col-form-label">* Vehicle Owner Contact No:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_own_conno" value={{member.vehicle_own_contact}} {% if access == False %}disabled{% endif %} required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-4 col-form-label">* Vehicle Owner Address:</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" style="height: 100px" name="v_own_address" id="v_own_address" {% if access == False %}disabled{% endif %} required>{{member.vehicle_own_add}}</textarea>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-4 col-form-label">* Vehicle Owner email:</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" name="v_own_email" value={{member.vehicle_own_email}} {% if access == False %}disabled{% endif %} required>
+                  </div>
+                </div>
+                 <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">* Vehicle Company name:</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="text" name="v_com_name" value={{member.vehicle_company_name}} {% if access == False %}disabled{% endif %} required>
+                  </div>
+                </div> 
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">* Date Of Registration:</label>
+                  <div class="col-sm-10">
+                    <input type="date" class="form-control" name="v_date_reg" value="{{member.vehicle_date_reg|date:'Y-m-d' }}" {% if access == False %}disabled{% endif %} required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">* Chassics No:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_chass_no" value="{{member.vehicle_chassics_no}}" {% if access == False %}disabled{% endif %} required >
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-2 col-form-label">* Engine No:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="v_eng_no" value="{{member.vehicle_eng_no}}" {% if access == False %}disabled{% endif %} required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">* Owner Sr. No :</label>
+                    <div class="col-sm-10">
+                      <input type="number" class="form-control" name="v_own_srno" value="{{member.vehicle_own_srno}}" {% if access == False %}disabled{% endif %} required
+                      >
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">* Fuel Used:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="v_fuel" value="{{member.vehicle_fuel_use}}" {% if access == False %}disabled{% endif %} required
+                      >
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">* Seating Capacity:</label>
+                    <div class="col-sm-10">
+                      <input type="number" class="form-control" name="v_seat" value="{{member.vehicle_Seat_cap}}" {% if access == False %}disabled{% endif %} required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">* Model Name:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="v_model_name" value="{{member.vehicle_model_name}}" {% if access == False %}disabled{% endif %} required>
+                    </div>
+                </div>
+               
+
+              
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  
+
+{% endblock body1 %}

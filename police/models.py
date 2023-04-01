@@ -18,3 +18,4 @@ class Police(models.Model):
 
     def __str__(self):
         return self.police_username
+    

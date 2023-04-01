@@ -66,9 +66,32 @@
                   <td>{{i.vehicle_Seat_cap}}</td>
                   <td>{{i.vehicle_created_date}}</td>
                   <td><a href="update_vid/{{ i.vehicle_id}}" class="btn btn-info"><i class="bi bi-pen"></i></a></td>
-                  <td><a href="delete_vid/{{ i.vehicle_id}}" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                  <!-- <td><a href="delete_vid/{{ i.vehicle_id}}" class="btn btn-danger"><i class="bi bi-trash"></i></a></td> -->
             
                   <!-- <td><span class="badge bg-warning">Review Request</span></td> -->
+                  <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#basicModal{{ i.vehicle_id}}">
+                    <i class="bi bi-trash"></i>
+                  </button></td>
+                  <div class="modal fade" id="basicModal{{ i.vehicle_id}}" tabindex="-1">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">warning</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Do you want to delete Vehical  {{i.vehicle_no}} ?
+                          <br>
+                          After deleting the Vehical will not able to recover.
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                          <a href="delete_vid/{{ i.vehicle_id}}" class="btn btn-danger">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </tr>
                 {% endfor %}
             

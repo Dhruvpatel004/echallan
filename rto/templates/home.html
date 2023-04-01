@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTO</title>
+    <style>
+        body {
+            margin: 4em 2em;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: #000000;
+            /* background-position: fla; */
+            background-image: url(https://d1fdloi71mui9q.cloudfront.net/dmf6TpUKQUupYgrWnBRf_tEjp8b55w933r2vU);
+        }
+
+        .tree {
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .tree .username {
+            text-transform: uppercase;
+            font-weight: 600;
+            margin: 2em;
+        }
+
+        .tree .links a {
+            margin: 0.75em auto;
+        }
+
+        .tree .footer {
+            margin: 2rem;
+        }
+
+        .tree .profile-pic {
+            width: 150px;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        a.btn {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tree">
+        <div class="header"><img src="{% static 'img/logo1.png'%}" width="250px"
+                 /></div>
+        <div class="username">@eChallan SGP2 </div>
+        <div class="links">
+            <h3><a href="rto-administrator/" class="btn btn-outline-primary btn-lg btn-block">RTO</a></h3>
+            
+            <h3><a href="police/" class="btn btn-outline-success btn-lg btn-block">Police</a></h3> 
+           
+            <h3><a href="echallan/" class="btn btn-outline-dark btn-lg btn-block">eChallan</a></h3>
+            
+          
+        </div>
+        <div class="footer">
+            Copyright &copy;eChallan - All Rights Reserved.
+        </div>
+    </div>
+</body>
+
+</html>

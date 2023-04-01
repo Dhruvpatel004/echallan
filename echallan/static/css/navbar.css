@@ -18,7 +18,7 @@
     background-color: transparent;
     position:fixed;
     color: black;
-    z-index: 1000;
+    z-index: 10000000;
     align-items: center;
     justify-content:space-between;
     justify-items: center;
@@ -141,3 +141,8 @@ display: inline-block;
   .nav-title{
     margin-left: 20px;
   }
+
+.ab
+{
+  margin-top:10%;
+}

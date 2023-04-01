@@ -22,8 +22,8 @@ v_no_Field.addEventListener("keyup",(e)=>{
           )
             .then(res=>res.json()).then(data=>
           {
-            console.log("fetching data from server by api"),
-            console.log("data",data);
+            // console.log("fetching data from server by api"),
+            // console.log("data",data);
             if(data.vehical_number_error)
             { v_no_Field_messg.innerHTML=`${data.vehical_number_error}`;
               submitBtn.disabled = true;
@@ -50,8 +50,8 @@ v_eng_no_Field.addEventListener("keyup",(e)=>{
     )
       .then(res=>res.json()).then(data=>
     {
-      console.log("fetching data from server by api"),
-      console.log("data",data);
+      // console.log("fetching data from server by api"),
+      // console.log("data",data);
       if(data.vehical_engine_number_error)
       { v_eng_no_Field_messg.innerHTML=`${data.vehical_engine_number_error}`;
         submitBtn.disabled = true;
@@ -77,8 +77,8 @@ v_chass_no_Field.addEventListener("keyup",(e)=>{
     )
       .then(res=>res.json()).then(data=>
     {
-      console.log("fetching data from server by api"),
-      console.log("data",data);
+      // console.log("fetching data from server by api"),
+      // console.log("data",data);
       if(data.vehical_chassics_number_error)
       { v_chass_no_Field_messg.innerHTML=`${data.vehical_chassics_number_error}`;
         submitBtn.disabled = true;

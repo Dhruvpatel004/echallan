@@ -45,8 +45,9 @@ urlpatterns = [
     path('rtodashboard/rto_add_vehicle/validate-vehical-engine-number', csrf_exempt(views.validate_vehical_engine_number_api),name="venoapi"),
     path('rtodashboard/rto_add_vehicle/validate-vehical-chassics-number', csrf_exempt(views.validate_vehical_chassics_number_api),name="vcnoapi"),
     path('rtodashboard/rto_add_rule/validate-rule-code', csrf_exempt(views.validate_rule_code_api),name="vcnoapi"),
+    path('rtodashboard/challan_history/', views.allcrto,name="challanlist"),
 
-
-
+    # path('rtodashboard/challan_history/rchallan/', views.allcpending,name="list"),
+    path('rtodashboard/challan_history/rchallan/<int:cno>', views.rchallan,name="list"),
 
 ]

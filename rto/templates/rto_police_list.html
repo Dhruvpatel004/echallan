@@ -68,7 +68,31 @@
                   <td>{{i.police_last_login}}</td>
                   <td>{{i.police_address}}</td>
                   <td><a href="update_pid/{{ i.police_id}}" class="btn btn-info"><i class="bi bi-pen"></i></a></td>
-                  <td><a href="delete_pid/{{ i.police_id}}" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                  <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#basicModal{{i.police_username}}">
+                    <i class="bi bi-trash"></i>
+                  </button></td>
+                  <div class="modal fade" id="basicModal{{i.police_username}}" tabindex="-1">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">warning</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Do you want to delete Accpunt  {{i.police_username}} - {{i.police_firstname}} {{i.police_lastname}} ?
+                          <br>
+                          After deleting the account will not able to recover.
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                          <a href="delete_pid/{{ i.police_id}}" class="btn btn-danger">DELETE</i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <td><a href="delete_pid/{{ i.police_id}}" class="btn btn-danger"><i class="bi bi-trash"></i></a></td> -->
+
             
                   <!-- <td><span class="badge bg-warning">Review Request</span></td> -->
                 </tr>

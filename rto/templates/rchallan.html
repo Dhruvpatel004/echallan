@@ -1,0 +1,115 @@
+{% extends 'base1.html' %}
+
+{% block title %}Add Challan Details{% endblock title %}
+{% block body1 %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Challan Details</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../">Home</a></li>
+          <li class="breadcrumb-item">Challan</li>
+          <li class="breadcrumb-item active">Challan No : {{c.challan_no}}</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+
+              <!-- General Form Elements -->
+              <form method="" action="">
+                {% csrf_token %}
+                
+
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Challan No :</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="v_no"  value="{{c.challan_no}}" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Rule Descrpsion :</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="v_no"  value="{{r.rule_code}} : {{r.rule_desc}}" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Suspect Name :</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="v_no"  value="{{c.suspect_name}}" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Owner Name :</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="v_no"  value="{{c.owner_name}}" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Vehicle No :</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="v_no"  value="{{c.vehicle_no}}" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Offender Mobile Number :</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="v_no"  value="{{c.offender_mobile_no}}" disabled>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Offender Mobile Number :</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="v_no"  value="{{c.offender_email_id}}" disabled>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Fine :</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="v_no"  value="{{c.fine}}" disabled>
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Status  :
+                    {% if c.status == "Paid" %}
+                    <span class="badge bg-success"><i class="bi bi-exclamation-octagon me-1"></i>{{c.status}}</span>
+                    {% endif %}
+                    {% if c.status == "Pending" %}
+                    <span class="badge bg-danger"><i class="bi bi-exclamation-octagon me-1"></i>{{c.status}}</span>
+                    {% endif %}
+                  </label>
+
+                </div>
+
+
+
+                <hr/>
+               
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+{% endblock body1 %}
